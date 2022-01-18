@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<center>
+    <h2>{{ success }}</h2>
+    <div>
+        <a class="btn btn-primary" href="{% url 'app:index' %}">ホームに戻る</a>
+    </div>
+</center>
+
+{% endblock %}

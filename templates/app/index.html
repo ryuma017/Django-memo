@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<!-- <a class="btn btn-primary" href="{% url 'app:new_memo' %}">新規メモ</a> -->
+
+<h1>Memo List</h1>
+<ul>
+    <table class="table caption-top">
+        <thead>
+            <tr>
+                <th scope="col">タイトル</th>
+                <th scope="col">更新日時</th>
+                <th scope="col">投稿者</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for memo in memos %}
+            <tr>
+                <td>{{ memo.title }}</td>
+                <td>{{ memo.updated_datetime }}</td>
+                <td>{{ memo.author }}</td>
+                <td><a class="btn btn-secondary btn-sm" href="{% url 'app:detail' memo.id %}">詳細</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</ul>
+<!-- {% for memo in memos %}
+<a class="memo-title" href="{% url 'app:detail' memo.id %}">
+    <div>
+        {{ memo }}
+        <span class="updated_datetime">{{ memo.updated_datetime }}</span>
+    </div>
+</a>
+{% endfor %} -->
+
+<!-- <a class="btn btn-primary" id="contact" href="{% url 'app:contact' %}">お問い合わせ</a> -->
+
+{% endblock %}

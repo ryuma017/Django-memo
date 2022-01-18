@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <table>
+        <div class="row">
+            <div class="col-md-8">
+                <h1>Contact Form</h1>
+                <p>お問合せフォームです。</p>
+                {{ form.as_p }}
+            </div>
+        </div>
+    </table>
+    <button type="submit" class="btn btn-primary">送信</button>
+</form>
+
+{% endblock %}

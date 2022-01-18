@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<h2>{{ memo.title }}</h2>
+
+<div class="my-4 mx-2">
+    {{ memo.text | linebreaks | urlize }}
+</div>
+
+{% if request.user.id == object.author_id %}
+    <div class="btn-toolbar">
+        <div class="btn-group gap-2 mt-2">
+            <a class="btn btn-outline-primary btn-sm" href="{% url 'app:edit_memo' memo.pk %}">編集</a>
+            <form action="{% url 'app:delete_memo' memo.pk %}" method="post">
+                {% csrf_token %}
+                <button class="btn btn-outline-danger btn-sm" type="submit" onclick="return confirm('本当に削除しますか？');">削除</button>
+            </form>
+        </div>
+    </div>
+{% endif %}
+
+{% endblock %}

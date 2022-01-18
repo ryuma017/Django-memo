@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="mb-4">
+<h1>Logged Out</h1>
+</div>
+<p>ログアウトしました。</p>
+<p><a href='{% url "app:index" %}'>Memo List に戻る</a></p>
+{% endblock %}
